@@ -66,23 +66,27 @@ const Admin = ({
                 <ConnectedRouter history={history}>
                     <div>
                         <Switch>
-                            <Route exact path="/login" render={({ location }) => createElement(loginPage || Login, {
-                                location,
-                                title,
-                                theme,
-                            })} />
-                            <Route path="/" render={() => createElement(appLayout || DefaultLayout, {
-                                dashboard,
-                                customRoutes,
-                                menu: createElement(menu || Menu, {
-                                    logout,
+                            <Route
+                                path="/login" render={({ location }) => createElement(loginPage || Login, {
+                                    location,
+                                    title,
+                                    theme,
+                                })}
+                            />
+                            <Route
+                                path="/" render={() => createElement(appLayout || DefaultLayout, {
+                                    dashboard,
+                                    customRoutes,
+                                    menu: createElement(menu || Menu, {
+                                        logout,
+                                        resources,
+                                        hasDashboard: !!dashboard,
+                                    }),
                                     resources,
-                                    hasDashboard: !!dashboard,
-                                }),
-                                resources,
-                                title,
-                                theme,
-                            })} />
+                                    title,
+                                    theme,
+                                })}
+                            />
                         </Switch>
                     </div>
                 </ConnectedRouter>
